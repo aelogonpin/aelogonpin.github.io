@@ -74,6 +74,7 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <canvas id="network-canvas" aria-hidden="true"></canvas>
     <div class="hero-container" data-aos="fade-in">
       <h1>Eloy González</h1>
       <p>I'm <span class="typed" data-typed-items="DevOps Engineer ☸️, SRE, Kubestronaut en camino 🚀, CNCF Enthusiast, Open-Source"></span></p>
@@ -472,51 +473,108 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">Todos</li>
-              <li data-filter=".filter-app">Sistemas &amp; Infra</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".filter-infra">Sistemas &amp; Infra</li>
+              <li data-filter=".filter-tools">Herramientas &amp; Open Source</li>
             </ul>
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/BLFS.avif" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/BLFS.avif" data-gallery="portfolioGallery" class="portfolio-lightbox" title="BLFS · Linux desde cero"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-blfs.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-            <h4 class="portfolio-title">BLFS · Linux From Scratch</h4>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-infra">
+            <button type="button" class="portfolio-card" data-project="blfs">
+              <span class="portfolio-media">
+                <img src="assets/img/BLFS.avif" alt="" loading="lazy">
+              </span>
+              <span class="portfolio-caption">
+                <span class="portfolio-title">BLFS · Linux From Scratch</span>
+                <span class="portfolio-view">Ver detalles <i class="bx bx-right-arrow-alt"></i></span>
+              </span>
+            </button>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/KVM.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/KVM.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="IPnotics Dashboard"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-kvm.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-            <h4 class="portfolio-title">IPnotics Dashboard &amp; Homelab</h4>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-infra">
+            <button type="button" class="portfolio-card" data-project="kvm">
+              <span class="portfolio-media">
+                <img src="assets/img/KVM.png" alt="" loading="lazy">
+              </span>
+              <span class="portfolio-caption">
+                <span class="portfolio-title">IPnotics Dashboard &amp; Homelab</span>
+                <span class="portfolio-view">Ver detalles <i class="bx bx-right-arrow-alt"></i></span>
+              </span>
+            </button>
           </div>
 
-           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/proyecto-finalasir.avif" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/proyecto-finalasir.avif" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Proyecto Final ASIR"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-            <h4 class="portfolio-title">Proyecto Final ASIR</h4>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-infra">
+            <button type="button" class="portfolio-card" data-project="asir">
+              <span class="portfolio-media">
+                <img src="assets/img/proyecto-finalasir.avif" alt="" loading="lazy">
+              </span>
+              <span class="portfolio-caption">
+                <span class="portfolio-title">Proyecto Final ASIR</span>
+                <span class="portfolio-view">Ver detalles <i class="bx bx-right-arrow-alt"></i></span>
+              </span>
+            </button>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-tools">
+            <button type="button" class="portfolio-card" data-project="monicrisp">
+              <span class="portfolio-media portfolio-media-generated" style="--accent:#149ddd">
+                <i class="bx bx-pulse"></i>
+              </span>
+              <span class="portfolio-caption">
+                <span class="portfolio-title">monicrisp</span>
+                <span class="portfolio-view">Ver detalles <i class="bx bx-right-arrow-alt"></i></span>
+              </span>
+            </button>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-tools">
+            <button type="button" class="portfolio-card" data-project="vault-tui">
+              <span class="portfolio-media portfolio-media-generated" style="--accent:#8957e5">
+                <i class="bx bx-key"></i>
+              </span>
+              <span class="portfolio-caption">
+                <span class="portfolio-title">vault-tui</span>
+                <span class="portfolio-view">Ver detalles <i class="bx bx-right-arrow-alt"></i></span>
+              </span>
+            </button>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-tools">
+            <button type="button" class="portfolio-card" data-project="logwebui">
+              <span class="portfolio-media portfolio-media-generated" style="--accent:#f97316">
+                <i class="bx bx-search-alt"></i>
+              </span>
+              <span class="portfolio-caption">
+                <span class="portfolio-title">logwebui</span>
+                <span class="portfolio-view">Ver detalles <i class="bx bx-right-arrow-alt"></i></span>
+              </span>
+            </button>
           </div>
 
         </div>
 
       </div>
     </section><!-- End Portfolio Section -->
+
+    <!-- ======= Project Details Modal ======= -->
+    <div class="project-modal" id="project-modal" aria-hidden="true">
+      <div class="project-modal-backdrop" data-close-modal></div>
+      <div class="project-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+        <button type="button" class="project-modal-close" data-close-modal aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+        <div class="project-modal-media" id="pm-media"></div>
+        <div class="project-modal-body">
+          <span class="project-modal-category" id="pm-category"></span>
+          <h3 id="pm-title"></h3>
+          <p class="project-modal-date" id="pm-date"></p>
+          <p class="project-modal-desc" id="pm-desc"></p>
+          <a id="pm-link" class="project-modal-link" href="#" target="_blank" rel="noopener">
+            <span id="pm-link-label"></span> <i class="bx bx-link-external"></i>
+          </a>
+        </div>
+      </div>
+    </div><!-- End Project Details Modal -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
